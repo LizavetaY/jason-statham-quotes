@@ -1,6 +1,14 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { TelegramBotModule } from './telegram-bot/telegram-bot.module';
 
 @Module({
-  imports: [],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      cache: true,
+    }),
+    TelegramBotModule
+  ],
 })
 export class AppModule {}
